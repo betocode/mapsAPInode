@@ -22,7 +22,7 @@ Na pasta root do projeto,instale as dependencias utilizando npm install e para i
 - dotenv
 - cors
 
-### banco de dados
+### `banco de dados`
 banco utilizado: mysql
 </br>
 create table Usuario(IdUsuario bigint auto_increment primary key not null,Nome varchar(255) not null,Senha varchar(255) not null);
