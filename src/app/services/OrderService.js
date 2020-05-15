@@ -33,8 +33,16 @@ class OrderService {
   }
 
   async listOrders({ IdUsuario }) {
-    const allOrders = await Entrega.findAll({ where: { IdUsuario } });
-    return allOrders;
+    try {
+      const allOrders = await Entrega.findAll({
+        where: { IdUsuario },
+        include: [{ association: "Usuario", attributes: { exclude: "Senha" } }],
+      });
+
+      return allOrders;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async singleOrder({ IdEntrega }) {

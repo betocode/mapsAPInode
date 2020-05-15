@@ -2,9 +2,6 @@ const Sequelize = require("sequelize");
 const md5 = require("md5");
 
 const { Model } = Sequelize;
-const dbConfig = require("../../config/database");
-
-const sequelize = new Sequelize(dbConfig);
 
 class Usuario extends Model {
   static init(sequelize) {
@@ -35,7 +32,5 @@ class Usuario extends Model {
     return md5(password) === this.Senha;
   }
 }
-
-Usuario.init(sequelize);
 
 module.exports = Usuario;

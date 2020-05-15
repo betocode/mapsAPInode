@@ -1,9 +1,6 @@
 const Sequelize = require("sequelize");
 
 const { Model } = Sequelize;
-const dbConfig = require("../../config/database");
-
-const sequelize = new Sequelize(dbConfig);
 
 class Entrega extends Model {
   static init(sequelize) {
@@ -54,8 +51,13 @@ class Entrega extends Model {
     );
     return this;
   }
+  static associate(models) {
+    this.hasOne(models.Usuario, {
+      sourceKey: "IdUsuario",
+      foreignKey: "IdUsuario",
+      as: "Usuario",
+    });
+  }
 }
-
-Entrega.init(sequelize);
 
 module.exports = Entrega;

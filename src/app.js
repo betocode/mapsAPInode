@@ -16,12 +16,6 @@ class App {
   middlewares() {
     this.server.use(express.json());
     this.server.use(cors({ origin: "*" }));
-
-    // this.server.use(
-    //   cors({
-    //     origin: "localhost:3000",
-    //   })
-    // );
   }
 
   routes() {
